@@ -9,6 +9,7 @@ import re
 from flask_sqlalchemy import SQLAlchemy
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
+import os
 
 class WordForm(FlaskForm):
     player = SelectField("player", choices = [("Anatoly Karpov","Anatoly Karpov"),("Garry Kasparov","Garry Kasparov"),("José Raúl Capablanca","José Raúl Capablanca")])
@@ -31,7 +32,8 @@ app.config["SECRET_KEY"] = "row the boat"
 csrf.init_app(app)
 bootstrap = Bootstrap(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///games.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///games.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 #db.session.execute('DROP TABLE games')
 #db.session.execute('DROP TABLE users')
