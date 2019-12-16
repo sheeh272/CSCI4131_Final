@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+<h1> Tactics From Games of {{player}} </h1>
+<img id = "tacticImage" src = {{tacticImg[0]}} width="400" height="400">
+<br/>
+<div> hover below to see solution:</div>
+<div id = containter>
+    <div id = "sol" class = "solution"> {{tacticSol[0]}}</div>
+</div>
+<br/>
+<button onclick = "newTactic()">
+    New exercise 
+</button>
+<br/>
+<br/>
+<span>puzzles taken from  </span>
+<a href = "http://www.wtharvey.com/">wtharvey.com </a>
+<br/>
+    {% with messages = get_flashed_messages() %}
+         {% if messages %}     
+            <script>
+            var messages = {{ messages | safe }};
+            for (var i=0; i<messages.length; i++) {
+            alert(messages[i]);
+            }
+            </script>
+         {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block javaScript%}
+    <script>
+        var len = 9
+        var imgs = JSON.parse({{tacticImgjson | tojson }});
+        var solutions = JSON.parse({{tacticSoljson | tojson }});
+        
+        function randomIntFromInterval(min, max) { 
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+        function newTactic(){
+            var tacticImg = document.getElementById("tacticImage");
+            var i = randomIntFromInterval(0, len);
+            tacticImg.src = imgs[i]
+            var solution = document.getElementById("sol");
+            solution.innerHTML = solutions[i]
+            solution.class = "solution";
+            solution.id = "sol";
+        }
+    </script>
+{% endblock %}

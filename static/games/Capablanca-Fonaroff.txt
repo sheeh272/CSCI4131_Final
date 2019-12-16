@@ -1,0 +1,5 @@
+Pe2-e4,Pe7-e5,Ng1-f3,Nb8-c6,Pd2-d4,Pd7-d6,Nb1-c3,Ng8-f6,Bf1-b5,Bc8-d7,
+0-0,Bf8-e7,Rf1-e1,Pe5-d4,Nf3-d4,Nc6-d4,Qd1-d4,Bd7-b5,Nc3-b5,0-0,Qd4-c3,
+Pc7-c6,Nb5-d4,Nb8-d7,Nd4-f5,Be7-f6,Qc3-g3,Nd7-e5,Bc1-f4,Qd8-c7,Ra1-d1,
+Ra8-d8,Rd1-d6,Rd8-d6,Bf4-e5,Rd6-d1,Re1-d1,Bf6-e5,Nf5-h6,Kg8-h8,Qg3-e5,
+Qc7-e5,Nh6-f7

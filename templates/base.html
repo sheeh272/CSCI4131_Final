@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    {% block head %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block styles %}
+    <!-- Bootstrap CSS -->
+    {{ bootstrap.load_css() }}
+     <link href="/static/finalProjcss.css" rel="stylesheet" type="text/css" media="all">
+    {% endblock %}
+
+    {% endblock %}
+    
+   
+    <body>
+        {% block navbar %}
+        <div class="container">
+             <div class="row">
+            <div class="col-2">
+            </div>
+           <div class="col-3">
+               <form action="/login" method="post">                   
+                    <input type="submit" name="logout" value="logout"/>
+               </form>
+           </div>
+           <div class="col-3">
+               <form action="/index" method="post">                  
+                    <input type="submit" name="home" value="home"/>
+               </form>
+           </div>
+            <div class="col-3">
+               <form action="/about" method="post">                  
+                    <input type="submit" name="about" value="about"/>
+               </form>
+           </div>
+           </div> 
+        </div>
+        {% endblock %}
+
+        {% block content %}
+        default content
+        {% endblock %}
+        
+        {%block footer%}           
+            <a href = https://github.umn.edu/>    link to github</a>
+        {% endblock %}
+        
+        {% block javaScript %}
+        {% endblock %}
+    </body>
+</html>

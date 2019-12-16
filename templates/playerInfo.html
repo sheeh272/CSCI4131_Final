@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{playerName}}</h1>
+    <img id = "img" src=""> 
+    <br/>
+    <br/>
+    <div id = "bio"> bio </div>
+{% endblock %}     
+  
+{% block javaScript %} 
+    <script>
+        function Get(yourUrl){
+            var Httpreq = new XMLHttpRequest(); // a new request
+            Httpreq.open("GET",yourUrl,false);
+            Httpreq.send(null);
+            return Httpreq.responseText;          
+        }
+        var player = {{playerNamejson | tojson }};
+        var key = "&key=AIzaSyBHdBJncTttb_UAHC1AD2_euiLwrn-gJiU";
+        var arguments = "&indent=True";
+        var url = "https://kgsearch.googleapis.com/v1/entities:search?query=" + JSON.parse(player) + key + arguments ;
+        var result = JSON.parse(Get(url));
+        var bio = result.itemListElement[0].result.detailedDescription.articleBody;
+        var b = document.getElementById('bio');
+        //console.log(b.innerHTML);
+        b.innerHTML = bio;
+        var playerImg = result.itemListElement[0].result.image.contentUrl;
+        var img = document.getElementById('img');
+        img.src = playerImg;
+        console.log(result);
+    </script>
+{% endblock %}

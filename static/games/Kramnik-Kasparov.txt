@@ -1,0 +1,7 @@
+Pd2-d4,Ng8-f6,Pc2-c4,Pg7-g6,Nb1-c3,Bf8-g7,Pe2-e4,Pd7-d6,Ng1-f3,0-0,Bf1-e2,Pe7-e5,Pd4-d5,Pa7-a5,
+Bc1-g5,Ph7-h6,Bg5-h4,Nb8-a6,0-0,Bc8-d7,Nf3-d2,Na6-c5,Pb2-b3,Nf6-e4,Bh4-d8,
+Ne4-c3,Qd1-e1,Rf8-d8,Ra1-c1,Nc3-a2,Rc1-a1,Na2-b4,Be2-d1,Pe5-e4,Ra1-b1,Rd8-e8,
+Qe1-e3,Pf7-f5,Ph2-h4,Re8-f8,Pg2-g3,Ra8-e8,Kg1-g2,Nb4-d3,Rf1-g1,Pf5-f4,Pg3-f4,
+Rf8-f4,Ph4-h5,Pg6-g5,Rg1-f1,Rf4-h4,Rf1-h1,Rh4-f4,Rh1-f1,Re8-f8,Pf2-f3,Rf4-h4,
+Pf3-e4,Nd3-f4,Kg2-g1,Nc5-d3,Pe4-e5,Nd3-e5,Rb1-c1,Rh4-h3,Nd2-f3,Pg5-g4,
+Nf3-e5,Rh3-e3,Ne5-d7,Nf4-h3,Kg1-g2,Rf8-f1,Kg2-f1,Pg4-g3,Kf1-g2,Nh3-f4

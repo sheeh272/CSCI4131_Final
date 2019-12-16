@@ -1,0 +1,340 @@
+{% extends "base.html" %}
+{% block content %}
+<br/>
+<div class="container">
+<div class="row">  
+    <div class="col-3"> </div>
+    <div class="col-6"> 
+<div id = "Pinfo"> <img src = {{player1Info[0][1]}} width="30" height="30"> {{player1Info[0][0]}} vs <img src = {{player2Info[0][1]}} width="30" height="30"> {{player2Info[0][0]}} </div>
+<table id = "board">
+    <tr>
+        <td><img id = "a8" src ="/static/CBassets/BRookWS.png"></td> <td><img id = "b8" src ="/static/CBassets/BKnightDS.png"></td>
+        <td><img id = "c8" src ="/static/CBassets/BBishopWS.png"></td> <td><img id = "d8" src ="/static/CBassets/BQueenDS.png"></td>
+        <td><img id = "e8" src ="/static/CBassets/BKingWS.png"></td> <td> <img id = "f8" src ="/static/CBassets/BBishopDS.png"></td>
+        <td><img id = "g8" src ="/static/CBassets/BKnightWS.png"></td> <td> <img id = "h8" src ="/static/CBassets/BRookDS.png"></td>
+     <tr>
+        <td><img id = "a7" src ="/static/CBassets/BPawnDS.png"></td> <td><img id = "b7" src ="/static/CBassets/BPawnWS.png"></td>
+        <td><img id = "c7" src ="/static/CBassets/BPawnDS.png"></td> <td><img id = "d7" src ="/static/CBassets/BPawnWS.png"></td>
+        <td><img id = "e7" src ="/static/CBassets/BPawnDS.png"></td> <td><img id = "f7" src ="/static/CBassets/BPawnWS.png"></td>
+        <td><img id = "g7" src ="/static/CBassets/BPawnDS.png"></td> <td><img id = "h7" src ="/static/CBassets/BPawnWS.png"></td>
+    </tr>
+     <tr>
+        <td><img id = "a6" src ="/static/CBassets/WS.png"></td> <td><img id = "b6" src ="/static/CBassets/DS.png"></td>
+        <td><img id = "c6" src ="/static/CBassets/WS.png"></td> <td><img id = "d6" src ="/static/CBassets/DS.png"></td>
+        <td><img id = "e6" src ="/static/CBassets/WS.png"></td> <td><img id = "f6" src ="/static/CBassets/DS.png"></td>
+        <td><img id = "g6" src ="/static/CBassets/WS.png"></td> <td><img id = "h6" src ="/static/CBassets/DS.png"></td>
+    </tr>
+     <tr>
+        <td><img id = "a5" src ="/static/CBassets/DS.png"></td> <td><img id = "b5" src ="/static/CBassets/WS.png"></td>
+        <td><img id = "c5" src ="/static/CBassets/DS.png"></td> <td><img id = "d5" src ="/static/CBassets/WS.png"></td>
+        <td><img id = "e5" src ="/static/CBassets/DS.png"></td> <td> <img id = "f5" src ="/static/CBassets/WS.png"></td>
+        <td><img id = "g5" src ="/static/CBassets/DS.png"></td> <td> <img id = "h5" src ="/static/CBassets/WS.png"></td>
+    </tr>
+      <tr>
+        <td><img id = "a4" src ="/static/CBassets/WS.png"></td> <td><img id = "b4" src ="/static/CBassets/DS.png"></td>
+        <td><img id = "c4" src ="/static/CBassets/WS.png"></td> <td><img id = "d4" src ="/static/CBassets/DS.png"></td>
+        <td><img id = "e4" src ="/static/CBassets/WS.png"></td> <td><img id = "f4" src ="/static/CBassets/DS.png"></td>
+        <td><img id = "g4" src ="/static/CBassets/WS.png"></td> <td><img id = "h4" src ="/static/CBassets/DS.png"></td>
+    </tr>
+    <tr>
+        <td><img id = "a3" src ="/static/CBassets/DS.png"></td> <td><img id = "b3" src ="/static/CBassets/WS.png"></td>
+        <td><img id = "c3" src ="/static/CBassets/DS.png"></td> <td><img id = "d3" src ="/static/CBassets/WS.png"></td>
+        <td><img id = "e3" src ="/static/CBassets/DS.png"></td> <td><img id = "f3" src ="/static/CBassets/WS.png"></td>
+        <td><img id = "g3" src ="/static/CBassets/DS.png"></td> <td> <img id = "h3" src ="/static/CBassets/WS.png"></td>
+    </tr>
+    <tr>
+        <td><img id = "a2" src ="/static/CBassets/WPawnWS.png"></td> <td><img id = "b2" src ="/static/CBassets/WPawnDS.png"></td>
+        <td><img id = "c2" src ="/static/CBassets/WPawnWS.png"></td> <td><img id = "d2" src ="/static/CBassets/WPawnDS.png"></td>
+        <td><img id = "e2" src ="/static/CBassets/WPawnWS.png"></td> <td> <img id = "f2" src ="/static/CBassets/WPawnDS.png"></td>
+        <td><img id = "g2" src ="/static/CBassets/WPawnWS.png"></td> <td> <img id = "h2" src ="/static/CBassets/WPawnDS.png"></td>
+    </tr>
+    <tr>
+        <td><img id = "a1" src ="/static/CBassets/WRookDS.png"></td> <td><img id = "b1" src ="/static/CBassets/WKnightWS.png"></td>
+        <td><img id = "c1" src ="/static/CBassets/WBishopDS.png"></td> <td><img id = "d1" src ="/static/CBassets/WQueenWS.png"></td>
+        <td><img id = "e1" src ="/static/CBassets/WKingDS.png"></td> <td> <img id = "f1" src ="/static/CBassets/WBishopWS.png"></td>
+        <td><img id = "g1" src ="/static/CBassets/WKnightDS.png"></td> <td> <img id = "h1" src ="/static/CBassets/WRookWS.png"></td>
+    </tr>
+</table>  
+    </div>
+    <div class="col-3"> </div>
+</div>
+    <br/>
+    <div class="row">
+        <br/>
+        <div class = "col-3">
+        </div>
+        <div class = "col-6">
+            <button onclick = "makeMove()"> nextMove</button>
+            <button onclick = "changeGame(0)"> nextGame</button>
+            <button onclick = "prevMove()"> backMove</button>
+            <button onclick = "changeGame(1)"> prevGame</button>
+        </div>      
+        <div class = "col-3">           
+         </div>
+    </div>
+</div>
+<br/> <br/>
+{% endblock %}
+
+{% block footer scoped %}
+
+{% endblock %}
+
+{% block javaScript %}
+    <script>
+        //var notation = ["Pe2-e4", "Pe7-e5", "Ng1-f3", "Nb8-c6"];
+        var games = {{notation | tojson }};
+        var player1Info = JSON.parse({{player1Infojson | tojson }});
+        var player2Info = JSON.parse({{player2Infojson | tojson }});
+        console.log(player1Info);
+        //var notation = JSON.parse(games)[0].split(",");
+        //console.log(notation);
+        var moveIndex = 0;
+        var turn = "W";
+        var gameIndex = 0;
+        var dict = {};
+        var init = false;
+        var initialPosition;
+
+        function saveHTML(){
+                var board = document.getElementById("board");
+                //console.log(board);
+                //console
+                initialPosition = board.innerHTML;
+                console.log(initialPosition);
+        }
+        
+        function prevMove(){
+            if(moveIndex == 0){
+                alert("at beginning of game");
+                return 0;
+            }
+            var notation = JSON.parse(games)[gameIndex].split(",");
+            var path = "/static/CBassets/";
+            //moves = {{notation | tojson }};
+            //console.log(JSON.parse(moves)[0])
+            changeTurn();
+            moveIndex--;
+            var move = notation[moveIndex];
+            if(move == "0-0"){
+                var n;
+                if(turn == "W"){
+                    n = "1";
+                }
+                else if(turn=="B"){
+                    n = "8";
+                }
+                var SquareInTableG1 = document.getElementById("g"+n);
+                SquareInTableG1.src = path + getSquareColor("g"+n);
+                var SquareInTableH1 = document.getElementById("h"+n);
+                SquareInTableH1.src = path + turn + getPiece("R") + getSquareColor("h"+n);
+                var SquareInTableE1 = document.getElementById("e"+n);
+                SquareInTableE1.src = path + turn + getPiece("K") + getSquareColor("e"+n);
+                var SquareInTableF1 = document.getElementById("f"+n);
+                SquareInTableF1.src = path + getSquareColor("f"+n);
+            }
+            else if(move === "0-0-0"){
+                var n;
+                if(turn == "W"){
+                    n = "1";
+                }
+                else if(turn=="B"){
+                    n = "8";
+                }
+                var SquareInTableB1 = document.getElementById("b"+n);
+                SquareInTableB1.src = path + getSquareColor("b"+n);
+                var SquareInTableC1 = document.getElementById("c"+n);
+                SquareInTableC1.src = path + getSquareColor("c"+n);
+                var SquareInTableE1 = document.getElementById("e"+n);
+                SquareInTableE1.src = path + turn + getPiece("K") + getSquareColor("e"+n);
+                var SquareInTableA1 = document.getElementById("a"+n);
+                SquareInTableA1.src = path + turn + getPiece("R") + getSquareColor("a"+n);
+                var SquareInTableD1 = document.getElementById("d"+n);
+                SquareInTableD1.src = path + getSquareColor("d"+n);
+            }
+            //moveIndex++;
+            else{
+                var squares = move.split("-");
+                var endSquare = squares[0].substr(1);
+                console.log(startSquare);
+                var piece = squares[0].charAt(0);
+                var startSquare = squares[1];
+                var startSquareInTable = document.getElementById(startSquare);
+                //startSquareInTable.src = path + getSquareColor(startSquare);
+                startSquareInTable.src = dict[startSquare].pop();
+                //startSquareInTable.src = dict[startSquare]
+                //dict[startSquare] = path + getSquareColor(startSquare);
+                var endSquareInTable = document.getElementById(endSquare);
+                endSquareInTable.src = path + turn+ getPiece(piece) + getSquareColor(endSquare);
+                //changeTurn();
+            }
+           
+        }
+        function changeGame(arg){
+            if(arg==0){
+                if(gameIndex == (player1Info.length - 1)){
+                     alert("no more games available")
+                }
+                else{
+                    gameIndex = gameIndex+1;
+                }
+            }
+            else{
+                if(gameIndex==0){
+                    alert("no previous game available")
+                }
+                else{
+                    gameIndex = gameIndex-1;
+                }
+            }
+            moveIndex = 0;
+            Pinfo = document.getElementById("Pinfo");
+            //console.log(gameIndex);
+            img1 = "<img src ="+ player1Info[gameIndex][1] + " width='30' height='30'>";
+            name1 = player1Info[gameIndex][0];
+            img2 = "<img src =" + player2Info[gameIndex][1] + " width='30' height='30'>";
+            name2 = player2Info[gameIndex][0];
+            Pinfo.innerHTML = "<div id = 'Pinfo'>" +img1+name1 +" vs "+img2+name2+"</div>";
+            document.getElementById("board").innerHTML = initialPosition;
+            turn = "W"
+            //console.log(Pinfo)
+        }
+        
+        function makeMove(){
+            if(init == false){
+                init = true;
+                saveHTML();              
+            }
+            var notation = JSON.parse(games)[gameIndex].split(",");
+            if((moveIndex+1) >= notation.length){
+                alert("at end of game");
+                return 0;
+            }
+            var path = "/static/CBassets/";
+            //moves = {{notation | tojson }};
+            //console.log(JSON.parse(moves)[0])
+            var move = notation[moveIndex];
+            moveIndex++;
+            if(move == "0-0"){
+                var n;
+                if(turn == "W"){
+                    n = "1";
+                }
+                else if(turn=="B"){
+                    n = "8";
+                }
+                var SquareInTableE1 = document.getElementById("e"+n);
+                SquareInTableE1.src = path + getSquareColor("e"+n);
+                var SquareInTableF1 = document.getElementById("f"+n);
+                SquareInTableF1.src = path + turn + getPiece("R") + getSquareColor("f"+n);
+                var SquareInTableG1 = document.getElementById("g"+n);
+                SquareInTableG1.src = path + turn + getPiece("K") + getSquareColor("g"+n);
+                var SquareInTableH1 = document.getElementById("h"+n);
+                SquareInTableH1.src = path + getSquareColor("h"+n);
+            }
+            else if(move === "0-0-0"){
+                var n;
+                if(turn == "W"){
+                    n = "1";
+                }
+                else if(turn=="B"){
+                    n = "8";
+                }
+                var SquareInTableA1 = document.getElementById("a"+n);
+                SquareInTableA1.src = path + getSquareColor("a"+n);
+                var SquareInTableB1 = document.getElementById("b"+n);
+                SquareInTableB1.src = path + getSquareColor("b"+n);
+                var SquareInTableC1 = document.getElementById("c"+n);
+                SquareInTableC1.src = path + turn + getPiece("K") + getSquareColor("c"+n);
+                var SquareInTableD1 = document.getElementById("d"+n);
+                SquareInTableD1.src = path + turn + getPiece("R") + getSquareColor("d"+n);
+                var SquareInTableE1 = document.getElementById("e"+n);
+                SquareInTableE1.src = path + getSquareColor("e"+n);
+            }
+            //moveIndex++;
+            else{
+                var squares = move.split("-");
+                var startSquare = squares[0].substr(1);
+                //console.log(startSquare);
+                var piece = squares[0].charAt(0);
+                var endSquare = squares[1];
+                var startSquareInTable = document.getElementById(startSquare);
+                startSquareInTable.src = path + getSquareColor(startSquare);
+                var endSquareInTable = document.getElementById(endSquare);
+               
+                //console.log(dict[endSquare]);
+                if(typeof dict[endSquare] === "undefined"){
+                    dict[endSquare] = [];
+                    var data = dict[endSquare];
+                    data.push(endSquareInTable.src)
+                    dict[endSquare] = data
+                    //console.log(dict[endSquare]);
+                }
+                else{
+                    var data = dict[endSquare];
+                    data.push(endSquareInTable.src)
+                    dict[endSquare] = data;
+                 }
+               
+                endSquareInTable.src = path + turn+ getPiece(piece) + getSquareColor(endSquare);
+            }
+            changeTurn();
+
+        }
+        function getSquareColor(square){
+            DsquareArray = ["a1","c1","e1","g1"
+                        ,"b2","d2","f2","h2","a3","c3","e3","g3"
+                        ,"b4","d4","f4","h4","a5","c5","e5","g5"
+                        ,"b6","d6","f6","h6","a7","c7","e7","g7"
+                        ,"b8","d8","f8","h8"];
+            var isDS = false;
+            for(x of DsquareArray){
+                if(x == square){
+                    isDS = true;
+                    break;
+                }
+            }             
+//            if(square == ("a1" ||"c1" ||"e1" ||"g1"
+//                        ||"b2"||"d2"||"f2"||"h2" ||"a3" ||"c3" ||"e3" ||"g3"
+//                        ||"b4"||"d4"||"f4"||"h4" ||"a5" ||"c5" ||"e5" ||"g5"
+//                        ||"b6"||"d6"||"f6"||"h6" ||"a7" ||"c7" ||"e7" ||"g7"
+//                        ||"b8"||"d8"||"f8"||"h8")){
+                    //return "/static/CBassets/DS.png"
+            if(isDS){
+                    return "DS.png";
+            }
+            else {
+                //return "/static/CBassets/WS.png"
+                return "WS.png";
+            }
+        }
+        function getPiece(notation){
+            switch(notation){
+                case "N":
+                    return "Knight";
+                case "B":
+                    return "Bishop";
+                case "K":
+                    return "King";
+                case "Q":
+                    return "Queen";
+                case "R":
+                    return "Rook";
+                case "P":
+                    return "Pawn";
+                case defult:
+                    return "";
+            }
+        }
+        function changeTurn(){
+            if(turn =="W"){
+                turn = "B";
+            }
+            else{
+                turn = "W";
+            }
+        }
+    </script>
+  {% endblock %} 
+  
+  
