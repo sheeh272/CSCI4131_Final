@@ -10,7 +10,6 @@ from flask_sqlalchemy import SQLAlchemy
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
 import os
-import click
 
 class WordForm(FlaskForm):
     player = SelectField("player", choices = [("Anatoly Karpov","Anatoly Karpov"),("Garry Kasparov","Garry Kasparov"),("José Raúl Capablanca","José Raúl Capablanca")])
@@ -42,9 +41,13 @@ db = SQLAlchemy(app)
 #db.session.execute('DROP TABLE users')
 #db.session.execute('DROP TABLE players')
 #db.session.execute('DROP TABLE tactics')
-@click.command(name = "createTables") 
-def createTables():
+
+try:
     db.session.execute('CREATE TABLE games(player1 TEXT, player2 TEXT, notation TEXT);')
+    db.session.execute('CREATE TABLE users(username TEXT, passcode Text);')
+    db.session.execute('CREATE TABLE players(name TEXT,flag TEXT);')
+    db.session.execute('CREATE TABLE tactics(name TEXT,puzzleImg TEXT,solution TEXT);')
+    
     db.session.execute('INSERT INTO games (player1,player2,notation) VALUES("Anatoly Karpov","Veslin Topalov",:notation)',{'notation': open("./static/games/Karpov-Topalov.txt","r").read().replace('\n', '')})
     db.session.execute('INSERT INTO games (player1,player2,notation) VALUES("Garry Kasparov","Viswanathan Anand",:notation)',{'notation': open("./static/games/Kasparov-Anand.txt","r").read().replace('\n', '')})
     db.session.execute('INSERT INTO games (player1,player2,notation) VALUES("Vladimir Kramnik","Garry Kasparov",:notation)',{'notation': open("./static/games/Kramnik-Kasparov.txt","r").read().replace('\n', '')})
@@ -54,10 +57,6 @@ def createTables():
     db.session.execute('INSERT INTO games (player1,player2,notation) VALUES("José Raúl Capablanca","Frank James Marshall",:notation)',{'notation': open("./static/games/Capablanca-Marshall.txt","r").read().replace('\n', '')})
     db.session.execute('INSERT INTO games (player1,player2,notation) VALUES("Ossip Bernstein","José Raúl Capablanca",:notation)',{'notation': open("./static/games/Bernstein-Capablanca.txt","r").read().replace('\n', '')})
     db.session.execute('INSERT INTO games (player1,player2,notation) VALUES("José Raúl Capablanca","Marc Fonaroff",:notation)',{'notation': open("./static/games/Capablanca-Fonaroff.txt","r").read().replace('\n', '')})
-
-    db.session.execute('CREATE TABLE users(username TEXT, passcode Text);')
-    db.session.execute('CREATE TABLE players(name TEXT,flag TEXT);')
-    db.session.execute('CREATE TABLE tactics(name TEXT,puzzleImg TEXT,solution TEXT);')
 
     db.session.execute('INSERT INTO tactics (name,puzzleImg,solution) VALUES("José Raúl Capablanca","/static/tactics/tactic1A.png","Rxg2 Kf1 Bc4+")')
     db.session.execute('INSERT INTO tactics (name,puzzleImg,solution) VALUES("José Raúl Capablanca","/static/tactics/tactic2A.png","Nxe4")')
@@ -105,6 +104,9 @@ def createTables():
     db.session.execute('INSERT INTO players (name,flag) VALUES("Ossip Bernstein","/static/flags/FrenchFlag.png")')
     db.session.execute('INSERT INTO players (name,flag) VALUES("Marc Fonaroff","/static/flags/USFlag.png")')
     db.session.commit()
+except:
+    print("");
+    #db already initialized
 
 #res = db.session.execute('SELECT * FROM games')
 #print(res.fetchall())
