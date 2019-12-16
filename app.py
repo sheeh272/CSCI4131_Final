@@ -32,6 +32,8 @@ app.config["SECRET_KEY"] = "row the boat"
 csrf.init_app(app)
 bootstrap = Bootstrap(app)
 
+
+    
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///games.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
@@ -39,7 +41,7 @@ db = SQLAlchemy(app)
 #db.session.execute('DROP TABLE users')
 #db.session.execute('DROP TABLE players')
 #db.session.execute('DROP TABLE tactics')
-try:
+def createTables():
     db.session.execute('CREATE TABLE games(player1 TEXT, player2 TEXT, notation TEXT);')
     db.session.execute('INSERT INTO games (player1,player2,notation) VALUES("Anatoly Karpov","Veslin Topalov",:notation)',{'notation': open("./static/games/Karpov-Topalov.txt","r").read().replace('\n', '')})
     db.session.execute('INSERT INTO games (player1,player2,notation) VALUES("Garry Kasparov","Viswanathan Anand",:notation)',{'notation': open("./static/games/Kasparov-Anand.txt","r").read().replace('\n', '')})
@@ -101,9 +103,6 @@ try:
     db.session.execute('INSERT INTO players (name,flag) VALUES("Ossip Bernstein","/static/flags/FrenchFlag.png")')
     db.session.execute('INSERT INTO players (name,flag) VALUES("Marc Fonaroff","/static/flags/USFlag.png")')
     db.session.commit()
-except:
-    print("");
-    #db already initialized
 
 #res = db.session.execute('SELECT * FROM games')
 #print(res.fetchall())
