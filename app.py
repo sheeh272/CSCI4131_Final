@@ -10,6 +10,7 @@ from flask_sqlalchemy import SQLAlchemy
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
 import os
+import click
 
 class WordForm(FlaskForm):
     player = SelectField("player", choices = [("Anatoly Karpov","Anatoly Karpov"),("Garry Kasparov","Garry Kasparov"),("José Raúl Capablanca","José Raúl Capablanca")])
@@ -41,6 +42,7 @@ db = SQLAlchemy(app)
 #db.session.execute('DROP TABLE users')
 #db.session.execute('DROP TABLE players')
 #db.session.execute('DROP TABLE tactics')
+@click.command(name = "createTables") 
 def createTables():
     db.session.execute('CREATE TABLE games(player1 TEXT, player2 TEXT, notation TEXT);')
     db.session.execute('INSERT INTO games (player1,player2,notation) VALUES("Anatoly Karpov","Veslin Topalov",:notation)',{'notation': open("./static/games/Karpov-Topalov.txt","r").read().replace('\n', '')})
