@@ -187,6 +187,10 @@
                     gameIndex = gameIndex-1;
                 }
             }
+            if(init == false){
+                init = true;
+                saveHTML();              
+            }
             moveIndex = 0;
             Pinfo = document.getElementById("Pinfo");
             //console.log(gameIndex);
