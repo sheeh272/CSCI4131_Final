@@ -48,6 +48,16 @@ db.session.execute('CREATE TABLE IF NOT EXISTS users(username TEXT, passcode Tex
 db.session.execute('CREATE TABLE IF NOT EXISTS players(name TEXT,flag TEXT);')
 db.session.execute('CREATE TABLE IF NOT EXISTS tactics(name TEXT,puzzleImg TEXT,solution TEXT);')
 
+db.session.execute('DROP TABLE games')
+#db.session.execute('DROP TABLE users')
+db.session.execute('DROP TABLE players')
+db.session.execute('DROP TABLE tactics')
+
+db.session.execute('CREATE TABLE IF NOT EXISTS games(player1 TEXT, player2 TEXT, notation TEXT);')
+db.session.execute('CREATE TABLE IF NOT EXISTS users(username TEXT, passcode Text);')
+db.session.execute('CREATE TABLE IF NOT EXISTS players(name TEXT,flag TEXT);')
+db.session.execute('CREATE TABLE IF NOT EXISTS tactics(name TEXT,puzzleImg TEXT,solution TEXT);')
+
 db.session.execute("INSERT INTO games (player1,player2,notation) VALUES('Anatoly Karpov','Veslin Topalov',:notation)",{'notation': open("./static/games/Karpov-Topalov.txt","r").read().replace('\n', '')})
 db.session.execute("INSERT INTO games (player1,player2,notation) VALUES('Garry Kasparov','Viswanathan Anand',:notation)",{'notation': open("./static/games/Kasparov-Anand.txt","r").read().replace('\n', '')})
 db.session.execute("INSERT INTO games (player1,player2,notation) VALUES('Vladimir Kramnik','Garry Kasparov',:notation)",{'notation': open("./static/games/Kramnik-Kasparov.txt","r").read().replace('\n', '')})
@@ -72,7 +82,7 @@ db.session.execute("INSERT INTO tactics (name,puzzleImg,solution) VALUES('José 
 db.session.execute("INSERT INTO tactics (name,puzzleImg,solution) VALUES('Anatoly Karpov','/static/tactics/tactic1B.png',' Qxa3 w/Rxb8+ Rc1 & R1c8  ')")
 db.session.execute("INSERT INTO tactics (name,puzzleImg,solution) VALUES('Anatoly Karpov','/static/tactics/tactic2B.png','...Bxf2+ (if ...Nxe4 Ng6#)')")
 db.session.execute("INSERT INTO tactics (name,puzzleImg,solution) VALUES('Anatoly Karpov','/static/tactics/tactic3B.png',' Rxd6+ w/Qxd8+')")
-db.session.execute("INSERT INTO tactics (name,puzzleImg,solution) VALUES('Anatoly Karpov','/static/tactics/tactic4B.png',' Qa3 ')')
+db.session.execute("INSERT INTO tactics (name,puzzleImg,solution) VALUES('Anatoly Karpov','/static/tactics/tactic4B.png',' Qa3 ')")
 db.session.execute("INSERT INTO tactics (name,puzzleImg,solution) VALUES('Anatoly Karpov','/static/tactics/tactic5B.png','g3+ Kh3 Nf2+')")
 db.session.execute("INSERT INTO tactics (name,puzzleImg,solution) VALUES('Anatoly Karpov','/static/tactics/tactic6B.png','Rc1 w/Nb5 ')")
 db.session.execute("INSERT INTO tactics (name,puzzleImg,solution) VALUES('Anatoly Karpov','/static/tactics/tactic7B.png',' Nxf3 ')")
