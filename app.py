@@ -53,6 +53,7 @@ db.session.execute('DROP TABLE games')
 db.session.execute('DROP TABLE players')
 db.session.execute('DROP TABLE tactics')
 
+#
 db.session.execute('CREATE TABLE IF NOT EXISTS games(player1 TEXT, player2 TEXT, notation TEXT);')
 db.session.execute('CREATE TABLE IF NOT EXISTS users(username TEXT, passcode Text);')
 db.session.execute('CREATE TABLE IF NOT EXISTS players(name TEXT,flag TEXT);')
