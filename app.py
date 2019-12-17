@@ -32,10 +32,10 @@ app.config["SECRET_KEY"] = "row the boat"
 csrf.init_app(app)
 bootstrap = Bootstrap(app)
 
-
+#
     
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///games.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///games.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 #db.session.execute('DROP TABLE games')
 #db.session.execute('DROP TABLE users')
